@@ -11,8 +11,8 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg") #練習問題1
 
-    kouka_img = pg.image.load("fig/3.png")
-    kouka_img = pg.transform.flip(kouka_img, True, False)
+    kouka_img = pg.image.load("fig/3.png")#3
+    kouka_img = pg.transform.flip(kouka_img, True, False)#4
 
     tmr = 0
 
@@ -20,13 +20,14 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        t = tmr
+        screen.blit(bg_img, [-t, 0])
 
-        screen.blit(kouka_img, [300, 200])
+        screen.blit(kouka_img, [300, 200])#3
 
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
