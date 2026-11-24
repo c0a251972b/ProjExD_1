@@ -26,16 +26,18 @@ def main():
 
         key_list = pg.key.get_pressed()
 
-        kouka_rct.move_ip((-1, 0))
-
-        if key_list[pg.K_UP]: #上矢印が押されていたら
-            kouka_rct.move_ip((0, -1))#横が0、縦に―1
+        x = -1
+        y = 0
+        if key_list[pg.K_UP]:
+            y = -1
         if key_list[pg.K_DOWN]: 
-            kouka_rct.move_ip((0, +1))
+            y = 1
         if key_list[pg.K_LEFT]: 
-             kouka_rct.move_ip((-1, 0))
+            x = -1
         if key_list[pg.K_RIGHT]:
-            kouka_rct.move_ip((2, 0))
+            x = 1
+
+        kouka_rct.move_ip((x, y))
 
         t = tmr%3200 
         screen.blit(bg_img, [-t, 0])#5
